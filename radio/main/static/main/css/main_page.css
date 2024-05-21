@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+.post {
+    background: #dadada;
+    flex: 1 1 calc(40% - 20px); /* Adjusts width with gap */
+    min-width: 300px;
+    max-width: calc(50% - 20px); /* Prevents stretching too wide */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post img{
+    width: 200px;
+}
+
+.post-title {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.post-content {
+    font-size: 16px;
+    color: #666;
+    flex-grow: 1; /* Pushes the date to the bottom */
+}
+
+.post-date {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .post {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}

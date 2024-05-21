@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +8,7 @@
         <title>Самое крутое радио "Беимбет FM"</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static 'main/css/main_page.css' %}">
 
         <style>
             #playPauseBtn {
@@ -32,6 +34,29 @@
         <audio id="radioPlayer" style="display: none;">
             <source src="https://icecast-vgtrk.cdnvideo.ru/vestifm_aac_64kbps" type="audio/mpeg">
         </audio>
+
+
+        <div class="container">
+            <div class="post">
+                <h2 class="post-title">Важное мероприятие</h2>
+                <p class="post-content"></p>
+                <span class="post-date">21 мая 2024</span>
+                <img src="{% static 'main/images/1.jpg' %}" alt="">
+            </div>
+            <div class="post">
+                <h2 class="post-title">Встреча с фанатами</h2>
+                <p class="post-content"></p>
+                <span class="post-date">21 мая 2024</span>
+                <img src="{% static 'main/images/2.png' %}" alt="">
+            </div>
+            <div class="post">
+                <h2 class="post-title">Открылся бассейн</h2>
+                <p class="post-content"></p>
+                <span class="post-date">21 мая 2024</span>
+                <img src="{% static 'main/images/3.jpg' %}" alt="">
+            </div>
+        </div>
+
     
         <script>
             document.addEventListener('DOMContentLoaded', function() {
