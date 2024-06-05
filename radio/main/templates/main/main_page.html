@@ -1,82 +1,197 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Самое крутое радио "Беимбет FM"</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'main/css/main_page.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГЛАВНОЕ РАДИО ЖИТИКАРЫ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <H1>ЭТО САЙТ главного радио житикары!</H1>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <style>
-            #playPauseBtn {
-                display: inline-block;
-                padding: 10px 20px;
-                font-size: 16px;
-                color: #fff;
-                background-color: #007bff;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            #volumeControl {
-            vertical-align: middle;
+    <main>
+        <section class="radio-controls">
+            <button id="play-pause-btn">Слушать</button>
+            <label for="volume-control">Громкость:</label>
+            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5">
+        </section>
+        <section class="publication">
+            <img src="{% static 'main/images/1.jpg' %}" alt="Image 1">
+            <h2>Публикация 1</h2> <br>
+            <p style="margin-left: 50px;">Сегодня прошло идеальное мероприятие. Спросите почему идеальное? А потому что потому.</p>
+        </section>
+        <section class="publication">
+            <img src="{% static 'main/images/2.png' %}" alt="Image 2">
+            <h2>Беимбет с фанатами</h2> <br>
+            <p style="margin-left: 50px;">Сегодня наш земляк провел встречу с фанами. Мы им гордимся, поднялся, но не зазнался!</p>
+        </section>
+        <section class="publication">
+            <img src="{% static 'main/images/3.jpg' %}" alt="Image 3">
+            <h2>БАССЕЙН!</h2> <br>
+            <p style="margin-left: 50px;">Тут нужно что-то написать про бассейн. Но зачем? Вы же сюда пришли радио слушать а не читать.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Наши контакты: <a href="mailto:info@example.com">gritsenko.main@gmail.com</a></p>
+        <p>Подпишись на нас:
+            <a href="#facebook">Facebook</a>,
+            <a href="#twitter">Twitter</a>,
+            <a href="#instagram">Instagram</a>
+        </p>
+        <p>&copy; 2024 Лучшее радио города. Все права защищены.</p>
+    </footer>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav .menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav .menu li {
+    margin: 0 1rem;
+}
+
+nav .menu li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease;
+}
+
+nav .menu li a:hover {
+    background: #555;
+    border-radius: 5px;
+}
+
+main {
+    padding: 1rem;
+}
+
+.radio-controls {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#play-pause-btn {
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+}
+
+#volume-control {
+    vertical-align: middle;
+}
+
+.publication {
+    background: #f4f4f4;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.publication img {
+    max-width: 150px;
+    margin-right: 1rem;
+    border-radius: 5px;
+}
+
+.publication h2 {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav .menu li {
+        margin: 0.5rem 0;
+    }
+
+    .publication {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .publication img {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+}
+    </style>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const volumeControl = document.getElementById('volume-control');
+    let isPlaying = false;
+    const radio = new Audio('https://your-radio-stream-url'); // Замените 'https://your-radio-stream-url' на URL вашего радио стрима
+
+    playPauseBtn.addEventListener('click', function() {
+        if (isPlaying) {
+            radio.pause();
+            playPauseBtn.textContent = 'Play Radio';
+        } else {
+            radio.play();
+            playPauseBtn.textContent = 'Pause Radio';
         }
-        </style>
+        isPlaying = !isPlaying;
+    });
 
-    </head>
-    <body>
-        <h1>Самое крутое радио "Беимбет FM"</h1>
-        <button id="playPauseBtn">Слушать</button>
-        <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="1">
-        <audio id="radioPlayer" style="display: none;">
-            <source src="https://icecast-vgtrk.cdnvideo.ru/vestifm_aac_64kbps" type="audio/mpeg">
-        </audio>
-
-
-        <div class="container">
-            <div class="post">
-                <h2 class="post-title">Важное мероприятие</h2>
-                <p class="post-content"></p>
-                <span class="post-date">21 мая 2024</span>
-                <img src="{% static 'main/images/1.jpg' %}" alt="">
-            </div>
-            <div class="post">
-                <h2 class="post-title">Встреча с фанатами</h2>
-                <p class="post-content"></p>
-                <span class="post-date">21 мая 2024</span>
-                <img src="{% static 'main/images/2.png' %}" alt="">
-            </div>
-            <div class="post">
-                <h2 class="post-title">Открылся бассейн</h2>
-                <p class="post-content"></p>
-                <span class="post-date">21 мая 2024</span>
-                <img src="{% static 'main/images/3.jpg' %}" alt="">
-            </div>
-        </div>
-
-    
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var playPauseBtn = document.getElementById('playPauseBtn');
-                var radioPlayer = document.getElementById('radioPlayer');
-                var volumeControl = document.getElementById('volumeControl');
-    
-                playPauseBtn.addEventListener('click', function() {
-                    if (radioPlayer.paused) {
-                        radioPlayer.play();
-                        playPauseBtn.textContent = 'Пауза';
-                    } else {
-                        radioPlayer.pause();
-                        playPauseBtn.textContent = 'Слушать';
-                    }
-                });
-                volumeControl.addEventListener('input', function() {
-                radioPlayer.volume = volumeControl.value;
-                });
-            });
-        </script>
-    </body>
+    volumeControl.addEventListener('input', function() {
+        radio.volume = volumeControl.value;
+    });
+});
+    </script>
+</body>
 </html>
