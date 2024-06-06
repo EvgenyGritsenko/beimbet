@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="{% url 'main_page' %}">Главная</a></li>
+                <li><a href="{% url 'abou_us' %}">О нас</a></li>
+                <li><a href="{% url 'services' %}">Услуги</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <h1>Этот сайт запускает радио туда сюда анау мынау</h1>
+    <img src="{% static 'main/images/gaci2.jpg'  %}" alt="">
+</body>
+
+<style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav .menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav .menu li {
+    margin: 0 1rem;
+}
+
+nav .menu li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease;
+}
+
+nav .menu li a:hover {
+    background: #555;
+    border-radius: 5px;
+}
+
+main {
+    padding: 1rem;
+}
+
+.radio-controls {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#play-pause-btn {
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+}
+
+#volume-control {
+    vertical-align: middle;
+}
+
+.publication {
+    background: #f4f4f4;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.publication img {
+    max-width: 150px;
+    margin-right: 1rem;
+    border-radius: 5px;
+}
+
+.publication h2 {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav .menu li {
+        margin: 0.5rem 0;
+    }
+
+    .publication {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .publication img {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+}
+</style>
+
+</html>
